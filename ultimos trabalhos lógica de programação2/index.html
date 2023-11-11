@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de programação 1</title>
+</head>
+<body>
+    <button onclick="exibirMenu()">Clique aqui</button>
+    <div id="resultado"></div>
+
+    <script>
+        function exibirMenu() {
+            const escolha = prompt(`Escolha uma opção:
+            1 - Imprimir números de 1 a 10
+            2 - Imprimir os números ímpares menores que 100
+            3 - Imprimir a tabuada do número 8
+            4 - Imprimir todas as tabuadas do número 1 ao 10`);
+
+            switch (escolha) {
+                case '1':
+                    imprimirNumerosDeUmADez();
+                    break;
+                case '2':
+                    imprimirNumerosImpares();
+                    break;
+                case '3':
+                    imprimirTabuadaDoOito();
+                    break;
+                case '4':
+                    imprimirTodasTabuadas();
+                    break;
+                default:
+                    alert('Opção inválida!');
+            }
+        }
+
+        function imprimirNumerosDeUmADez() {
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.textContent = '';
+            for (let i = 1; i <= 10; i++) {
+                resultadoDiv.textContent += i + ' ';
+            }
+        }
+
+        function imprimirNumerosImpares() {
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.textContent = '';
+            for (let i = 1; i < 100; i += 2) {
+                resultadoDiv.textContent += i + ' ';
+            }
+        }
+
+        function imprimirTabuadaDoOito() {
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.textContent = '';
+            for (let i = 1; i <= 10; i++) {
+                resultadoDiv.textContent += `8 x ${i} = ${8 * i}\n`;
+            }
+        }
+
+        function imprimirTodasTabuadas() {
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.textContent = '';
+            for (let num = 1; num <= 10; num++) {
+                resultadoDiv.textContent += `Tabuada do ${num}:\n`;
+                for (let i = 1; i <= 10; i++) {
+                    resultadoDiv.textContent += `${num} x ${i} = ${num * i}\n`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
